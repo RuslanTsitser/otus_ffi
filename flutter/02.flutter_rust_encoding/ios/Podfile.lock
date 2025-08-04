@@ -1,0 +1,34 @@
+PODS:
+  - cryptography_flutter (0.2.0):
+    - Flutter
+  - ffi_lib (1.0.0)
+  - Flutter (1.0.0)
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - cryptography_flutter (from `.symlinks/plugins/cryptography_flutter/ios`)
+  - ffi_lib (from `./ffi_lib`)
+  - Flutter (from `Flutter`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+
+EXTERNAL SOURCES:
+  cryptography_flutter:
+    :path: ".symlinks/plugins/cryptography_flutter/ios"
+  ffi_lib:
+    :path: "./ffi_lib"
+  Flutter:
+    :path: Flutter
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+
+SPEC CHECKSUMS:
+  cryptography_flutter: 70166b3780db39960caf51fd90fe308bec22d3f1
+  ffi_lib: 0832e630fee67a3556aa403341039de75b0e6d5f
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
+
+PODFILE CHECKSUM: 7c2cc02dac4b5787f3c2ae5560ba2c282e5fc7c7
+
+COCOAPODS: 1.16.2

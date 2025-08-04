@@ -1,0 +1,6 @@
+description: "FFI bindings for lib.h"
+name: "LibBindings"
+output: "lib/lib_bindings.dart"
+headers:
+  entry-points:
+    - "ffi_c/lib.h"

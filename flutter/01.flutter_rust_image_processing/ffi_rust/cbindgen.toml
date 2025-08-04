@@ -1,0 +1,22 @@
+language = "C"
+include_guard = "IMAGE_PROCESSING_FFI_H"
+autogen_warning = "// Автоматически сгенерировано с помощью cbindgen. Не редактируйте вручную."
+tab_width = 4
+documentation = true
+documentation_style = "doxy"
+line_length = 100
+
+[export]
+prefix = ""
+include = ["resize_image", "rotate_image_90", "rgba_to_jpeg", "free_image"]
+exclude = []
+rename = {}
+
+[defines]
+"target_os = android" = "ANDROID"
+
+[parse]
+parse_deps = true
+include = ["src"]
+extra_bindings = []
+clean = false

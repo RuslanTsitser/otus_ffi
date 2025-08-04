@@ -1,0 +1,4 @@
+output: "lib/sum_bindings.dart"
+headers:
+  entry-points:
+    - "ffi_c/sum.h"

@@ -1,0 +1,28 @@
+PODS:
+  - ffi_lib (1.0.0)
+  - Flutter (1.0.0)
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - ffi_lib (from `./ffi_lib`)
+  - Flutter (from `Flutter`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+
+EXTERNAL SOURCES:
+  ffi_lib:
+    :path: "./ffi_lib"
+  Flutter:
+    :path: Flutter
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+
+SPEC CHECKSUMS:
+  ffi_lib: 0832e630fee67a3556aa403341039de75b0e6d5f
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
+
+PODFILE CHECKSUM: 7c2cc02dac4b5787f3c2ae5560ba2c282e5fc7c7
+
+COCOAPODS: 1.16.2

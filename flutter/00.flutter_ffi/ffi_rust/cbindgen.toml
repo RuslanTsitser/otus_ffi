@@ -1,0 +1,19 @@
+language = "C"
+include_guard = "FFI_RUST_H"
+autogen_warning = "// Автоматически сгенерировано с помощью cbindgen. Не редактируйте вручную."
+tab_width = 4
+documentation = true
+documentation_style = "doxy"
+line_length = 100
+
+[export]
+prefix = ""
+include = ["sum", "multiply", "get_string_length"]
+exclude = []
+rename = {}
+
+[parse]
+parse_deps = true
+include = ["src"]
+extra_bindings = []
+clean = false
