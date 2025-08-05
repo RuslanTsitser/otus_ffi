@@ -9,5 +9,12 @@
     "editor.rulers": [80],
     "editor.wordWrapColumn": 80
   },
-  "dart.lineLength": 80
+  "dart.lineLength": 80,
+  "rust-analyzer.linkedProjects": [
+    "dart/05.dart_go_rust/ffi_rust/Cargo.toml",
+    "flutter/00.flutter_ffi/ffi_rust/Cargo.toml",
+    "flutter/01.flutter_rust_image_processing/ffi_rust/Cargo.toml",
+    "flutter/02.flutter_rust_encoding/ffi_rust/Cargo.toml",
+    "flutter/03.flutter_rust_python/ffi_rust/Cargo.toml"
+  ]
 }
