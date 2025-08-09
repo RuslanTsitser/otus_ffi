@@ -1,13 +1,14 @@
 # FFI C
 
-## Build
+## Build as executable
 
 ```bash
-gcc ffi_c/sum.c -fPIC -shared -o ffi_c/sum
+clang ffi_c/sum.c -o ffi_c/sum
+./ffi_c/sum 1 2
 ```
 
-or
+## Build as shared library
 
 ```bash
-clang ffi_c/sum.c -fPIC -shared -o ffi_c/sum
+clang ffi_c/sum.c -o ffi_c/sum -fPIC -shared 
 ```
