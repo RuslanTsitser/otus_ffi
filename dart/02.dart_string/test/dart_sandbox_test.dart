@@ -3,6 +3,9 @@ import 'package:test/test.dart';
 
 void main() {
   test('calculate', () {
-    expect(getStringLength('Hello, world!'), 'Длина строки 13 символов');
+    expect(
+      getStringLengthWithStatic('Hello, world!'),
+      'Длина строки 13 символов',
+    );
   });
 }

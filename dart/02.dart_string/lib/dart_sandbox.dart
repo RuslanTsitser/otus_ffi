@@ -1,17 +1,33 @@
 import 'dart:ffi' as ffi;
-import 'dart:io';
+
+import 'package:ffi/ffi.dart';
 
 import 'lib_bindings.dart';
 import 'string_extension.dart';
 
-/// Текущая директория проекта (корень)
-final dirPath = Directory.current.path;
+const libraryPath = 'ffi_c/lib';
+final nativeLibrary = ffi.DynamicLibrary.open(libraryPath);
+final lib = NativeLibrary(nativeLibrary);
 
-final libraryPath = '$dirPath/ffi_c/lib';
+String getStringLengthWithStatic(String value) {
+  final pointer = value.toPointer();
 
-final lib = NativeLibrary(ffi.DynamicLibrary.open(libraryPath));
+  final result = lib.get_string_length_with_static(pointer);
+  malloc.free(pointer);
 
-String getStringLength(String value) {
-  final result = lib.get_string_length(value.toPointer());
-  return result.toStr();
+  final resultDart = result.toStr();
+  return resultDart;
+}
+
+String getStringLengthWithMalloc(String value) {
+  final pointer = value.toPointer();
+
+  final result = lib.get_string_length_with_malloc(pointer);
+  malloc.free(pointer);
+
+  final resultDart = result.toStr();
+  // Нужно освободить, потому что в C была выделена память
+  lib.lib_free(result);
+
+  return resultDart;
 }
