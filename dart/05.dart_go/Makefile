@@ -1,14 +1,5 @@
-# Компиляция библиотеки
 compile:
-	clang ffi_c/lib.c -fPIC -shared -o ffi_c/lib
-
-compile_go:
-	cd ffi_go && go build -buildmode=c-shared -o lib
-
-compile_rust:
-	cd ffi_rust && cargo build --release
-	cd ffi_rust && cbindgen --config cbindgen.toml --output lib.h
-	cp ffi_rust/target/release/libffi_rust.dylib ffi_rust/lib
+	cd ffi_go && go build -o lib -buildmode=c-shared 
 
 # Генерация dart bindings
 ffigen:

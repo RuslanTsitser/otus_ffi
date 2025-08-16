@@ -19,6 +19,11 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 /* Start of preamble from import "C" comments.  */
 
 
+#line 3 "lib.go"
+
+#include <stdlib.h>
+
+#line 1 "cgo-generated-wrapper"
 
 
 /* End of preamble from import "C" comments.  */
@@ -77,6 +82,7 @@ extern "C" {
 extern int sum(int a, int b);
 extern int multiply(int a, int b);
 extern char* get_string_length(char* str);
+extern void lib_free(char* str);
 
 #ifdef __cplusplus
 }

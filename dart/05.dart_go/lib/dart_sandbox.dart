@@ -1,15 +1,11 @@
 import 'dart:ffi' as ffi;
-import 'dart:io';
+
+import 'package:ffi/ffi.dart';
 
 import 'lib_bindings.dart';
 import 'string_extension.dart';
 
-/// Текущая директория проекта (корень)
-final _dirPath = Directory.current.path;
-
-// final _libraryPath = '$_dirPath/ffi_go/lib';
-// final _libraryPath = '$_dirPath/ffi_rust/lib';
-final _libraryPath = '$_dirPath/ffi_c/lib';
+final _libraryPath = 'ffi_go/lib';
 
 final _lib = LibBindings(ffi.DynamicLibrary.open(_libraryPath));
 
@@ -22,6 +18,10 @@ int multiply(int a, int b) {
 }
 
 String getStringLength(String value) {
-  final result = _lib.get_string_length(value.toPointer());
-  return result.toStr();
+  final pointer = value.toPointer();
+  final result = _lib.get_string_length(pointer);
+  final resultStr = result.toStr();
+  _lib.lib_free(result);
+  malloc.free(pointer);
+  return resultStr;
 }
