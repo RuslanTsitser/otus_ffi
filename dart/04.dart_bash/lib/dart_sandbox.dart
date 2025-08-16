@@ -1,6 +1,8 @@
 import 'dart:ffi' as ffi;
 import 'dart:io';
 
+import 'package:ffi/ffi.dart';
+
 import 'lib_bindings.dart';
 import 'string_extension.dart';
 
@@ -20,6 +22,8 @@ int multiply(int a, int b) {
 }
 
 String getStringLength(String value) {
-  final result = _lib.get_string_length(value.toPointer());
+  final pointer = value.toPointer();
+  final result = _lib.get_string_length_with_static(pointer);
+  malloc.free(pointer);
   return result.toStr();
 }

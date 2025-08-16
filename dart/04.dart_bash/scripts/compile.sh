@@ -1,1 +1,1 @@
-clang ffi_c/lib.c -fPIC -shared -o ffi_c/lib
+clang ffi_c/lib.c -o ffi_c/lib -fPIC -shared
