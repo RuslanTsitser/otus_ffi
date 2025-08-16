@@ -17,3 +17,13 @@ pub extern "C" fn get_string_length(str: *const c_char) -> *const c_char {
     let result = CString::new(format!("Длина строки {} символов", length)).unwrap();
     result.into_raw()
 }
+
+#[no_mangle]
+pub extern "C" fn free_string(str: *mut c_char) {
+    if str.is_null() {
+        return;
+    }
+    unsafe {
+        let _ = CString::from_raw(str);
+    }
+}
