@@ -2366,47 +2366,64 @@ class LibBindings {
 
   set suboptarg(ffi.Pointer<ffi.Char> value) => _suboptarg.value = value;
 
-  int sum(int a, int b) {
-    return _sum(a, b);
+  int Sum(int a, int b) {
+    return _Sum(a, b);
   }
 
-  late final _sumPtr =
-      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Int)>>('sum');
-  late final _sum = _sumPtr.asFunction<int Function(int, int)>();
+  late final _SumPtr =
+      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Int)>>('Sum');
+  late final _Sum = _SumPtr.asFunction<int Function(int, int)>();
 
-  int multiply(int a, int b) {
-    return _multiply(a, b);
+  int Multiply(int a, int b) {
+    return _Multiply(a, b);
   }
 
-  late final _multiplyPtr =
+  late final _MultiplyPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int, ffi.Int)>>(
-        'multiply',
+        'Multiply',
       );
-  late final _multiply = _multiplyPtr.asFunction<int Function(int, int)>();
+  late final _Multiply = _MultiplyPtr.asFunction<int Function(int, int)>();
 
-  ffi.Pointer<ffi.Char> get_string_length(ffi.Pointer<ffi.Char> str) {
-    return _get_string_length(str);
+  ffi.Pointer<ffi.Char> GetStringLength(ffi.Pointer<ffi.Char> str) {
+    return _GetStringLength(str);
   }
 
-  late final _get_string_lengthPtr =
+  late final _GetStringLengthPtr =
       _lookup<
         ffi.NativeFunction<
           ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)
         >
-      >('get_string_length');
-  late final _get_string_length = _get_string_lengthPtr
-      .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)>();
+      >('GetStringLength');
+  late final _GetStringLength =
+      _GetStringLengthPtr.asFunction<
+        ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)
+      >();
 
-  void lib_free(ffi.Pointer<ffi.Char> str) {
-    return _lib_free(str);
+  void FreeString(ffi.Pointer<ffi.Char> str) {
+    return _FreeString(str);
   }
 
-  late final _lib_freePtr =
+  late final _FreeStringPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
-        'lib_free',
+        'FreeString',
       );
-  late final _lib_free = _lib_freePtr
-      .asFunction<void Function(ffi.Pointer<ffi.Char>)>();
+  late final _FreeString =
+      _FreeStringPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
+
+  ffi.Pointer<ffi.Char> GetArrayOfStrings(ffi.Pointer<ffi.Char> str) {
+    return _GetArrayOfStrings(str);
+  }
+
+  late final _GetArrayOfStringsPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)
+        >
+      >('GetArrayOfStrings');
+  late final _GetArrayOfStrings =
+      _GetArrayOfStringsPtr.asFunction<
+        ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)
+      >();
 }
 
 typedef __int8_t = ffi.SignedChar;

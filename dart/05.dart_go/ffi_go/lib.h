@@ -79,10 +79,11 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern int sum(int a, int b);
-extern int multiply(int a, int b);
-extern char* get_string_length(char* str);
-extern void lib_free(char* str);
+extern int Sum(int a, int b);
+extern int Multiply(int a, int b);
+extern char* GetStringLength(char* str);
+extern void FreeString(char* str);
+extern char* GetArrayOfStrings(char* str);
 
 #ifdef __cplusplus
 }
