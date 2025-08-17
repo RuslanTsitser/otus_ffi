@@ -14,7 +14,5 @@ run:
 
 # Очистка
 clean:
-	rm -rf ffi_c/lib
 	rm -rf ffi_go/lib
-	rm -rf ffi_rust/lib
 	rm -rf lib/lib_bindings.dart

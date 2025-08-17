@@ -93,18 +93,18 @@ func FactorialsOfIntArray(arr *C.int, size C.int) *C.char {
 }
 
 func main() {
-	// hello := C.CString("Hello, World!")
-	// defer FreeString(hello)
+	hello := C.CString("Hello, World!")
+	defer FreeString(hello)
 
-	// stringLength := GetStringLength(hello)
-	// defer FreeString(stringLength)
-	// result := C.GoString(stringLength)
-	// fmt.Println(result)
+	stringLength := GetStringLength(hello)
+	defer FreeString(stringLength)
+	result := C.GoString(stringLength)
+	fmt.Println(result)
 
-	// arrayOfStrings := GetArrayOfStrings(hello)
-	// defer FreeString(arrayOfStrings)
-	// arrayOfStringsResult := C.GoString(arrayOfStrings)
-	// fmt.Println(arrayOfStringsResult)
+	arrayOfStrings := GetArrayOfStrings(hello)
+	defer FreeString(arrayOfStrings)
+	arrayOfStringsResult := C.GoString(arrayOfStrings)
+	fmt.Println(arrayOfStringsResult)
 
 	arr := []C.int{1, 2, 3, 4, 5}
 	factorials := FactorialsOfIntArray(&arr[0], C.int(len(arr)))
