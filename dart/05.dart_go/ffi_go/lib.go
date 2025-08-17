@@ -62,17 +62,54 @@ func GetArrayOfStrings(str *C.char) *C.char {
 	return C.CString(result)
 }
 
+func factorial(n int) int {
+	if n == 0 {
+		return 1
+	}
+	res := 1
+	for i := 2; i <= n; i++ {
+		res *= i
+	}
+	return res
+}
+
+func factorialChan(n int, factorials chan int) {
+	factorials <- factorial(n)
+}
+
+//export FactorialsOfIntArray
+func FactorialsOfIntArray(arr *C.int, size C.int) *C.char {
+	slice := unsafe.Slice((*C.int)(arr), int(size))
+	ch := make(chan int, int(size))
+	for i := 0; i < int(size); i++ {
+		go factorialChan(int(slice[i]), ch)
+	}
+
+	result := ""
+	for i := 0; i < int(size); i++ {
+		result += fmt.Sprintf("%d ", <-ch)
+	}
+	return C.CString(result)
+}
+
 func main() {
-	hello := C.CString("Hello, World!")
-	defer FreeString(hello)
+	// hello := C.CString("Hello, World!")
+	// defer FreeString(hello)
 
-	stringLength := GetStringLength(hello)
-	defer FreeString(stringLength)
-	result := C.GoString(stringLength)
-	fmt.Println(result)
+	// stringLength := GetStringLength(hello)
+	// defer FreeString(stringLength)
+	// result := C.GoString(stringLength)
+	// fmt.Println(result)
 
-	arrayOfStrings := GetArrayOfStrings(hello)
-	defer FreeString(arrayOfStrings)
-	arrayOfStringsResult := C.GoString(arrayOfStrings)
-	fmt.Println(arrayOfStringsResult)
+	// arrayOfStrings := GetArrayOfStrings(hello)
+	// defer FreeString(arrayOfStrings)
+	// arrayOfStringsResult := C.GoString(arrayOfStrings)
+	// fmt.Println(arrayOfStringsResult)
+
+	arr := []C.int{1, 2, 3, 4, 5}
+	factorials := FactorialsOfIntArray(&arr[0], C.int(len(arr)))
+	defer FreeString(factorials)
+	factorialsResult := C.GoString(factorials)
+	fmt.Println(factorialsResult)
+
 }

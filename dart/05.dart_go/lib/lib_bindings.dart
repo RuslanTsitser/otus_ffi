@@ -2424,6 +2424,24 @@ class LibBindings {
       _GetArrayOfStringsPtr.asFunction<
         ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)
       >();
+
+  ffi.Pointer<ffi.Char> FactorialsOfIntArray(
+    ffi.Pointer<ffi.Int> arr,
+    int size,
+  ) {
+    return _FactorialsOfIntArray(arr, size);
+  }
+
+  late final _FactorialsOfIntArrayPtr =
+      _lookup<
+        ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Int>, ffi.Int)
+        >
+      >('FactorialsOfIntArray');
+  late final _FactorialsOfIntArray =
+      _FactorialsOfIntArrayPtr.asFunction<
+        ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Int>, int)
+      >();
 }
 
 typedef __int8_t = ffi.SignedChar;

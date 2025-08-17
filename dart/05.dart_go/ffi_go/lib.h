@@ -84,6 +84,7 @@ extern int Multiply(int a, int b);
 extern char* GetStringLength(char* str);
 extern void FreeString(char* str);
 extern char* GetArrayOfStrings(char* str);
+extern char* FactorialsOfIntArray(int* arr, int size);
 
 #ifdef __cplusplus
 }

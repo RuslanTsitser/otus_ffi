@@ -25,3 +25,34 @@ String getStringLength(String value) {
   malloc.free(pointer);
   return resultStr;
 }
+
+String factorialsOfIntArray(List<int> array) {
+  final pointer = malloc<ffi.Int>(array.length);
+  for (var i = 0; i < array.length; i++) {
+    pointer[i] = array[i];
+  }
+  final result = _lib.FactorialsOfIntArray(pointer, array.length);
+  final resultStr = result.toStr();
+  _lib.FreeString(result);
+  malloc.free(pointer);
+  return resultStr;
+}
+
+String factorialsOfIntArrayDart(List<int> array) {
+  final result = <int>[];
+  for (var i = 0; i < array.length; i++) {
+    result.add(factorial(array[i]));
+  }
+  return result.join(' ');
+}
+
+int factorial(int n) {
+  if (n == 0) {
+    return 1;
+  }
+  int res = 1;
+  for (var i = 2; i <= n; i++) {
+    res *= i;
+  }
+  return res;
+}
